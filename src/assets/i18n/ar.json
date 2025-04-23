@@ -1,0 +1,72 @@
+{
+  "Actions": "إجراءات",
+  "Add": "إضافة",
+  "Add-Body": "إضافة محتوى",
+  "Add-Title": "إضافة عنوان",
+  "Add-User-ID": "إضافة معرف المستخدم",
+  "Admin": "المشرف",
+  "Body": "المحتوى",
+  "Customers_Analytics": "تحليلات العملاء",
+  "Dash": "لوحة التحكم",
+  "Dashboard": "لوحة التحكم",
+  "Down_from yesterday": "انخفاض عن الأمس",
+  "Down_from_yesterday": "انخفاض عن الأمس",
+  "Filter_By": "تصفية حسب",
+  "ID": "المعرف",
+  "Moni_Roy": "موني روي",
+  "Post": "منشور",
+  "Posts-Lists": "قوائم المنشورات",
+  "Posts_List": "قائمة المنشورات",
+  "Posts_Lists": "قوائم المنشورات",
+  "Reset_Filter": "إعادة تعيين التصفية",
+  "Sales_Analytics": "تحليلات المبيعات",
+  "Sales_Details": "تفاصيل المبيعات",
+  "Save": "حفظ",
+  "Title": "العنوان",
+  "Total_Order": "إجمالي الطلبات",
+  "Total_Sales": "إجمالي المبيعات",
+  "Total_Users": "إجمالي المستخدمين",
+  "Up_from_past_week": "ارتفاع عن الأسبوع الماضي",
+  "Up_from_yesterday": "ارتفاع عن الأمس",
+  "User-ID": "معرف المستخدم",
+  "UserId": "معرف المستخدم",
+  "User_Id": "معرف المستخدم",
+  "XonTel": "إكسون تل",
+  "atleast-char": "يجب أن يكون على الأقل 3 أحرف",
+  "backtoDathboard": "العوده الي صفحه التحكم",
+  "delete": {
+    "cancel": "إلغاء",
+    "confirm": "هل أنت متأكد أنك تريد حذف هذا العنصر؟",
+    "delete": "حذف"
+  },
+  "email": {
+    "placeholder": "البريد الإلكتروني"
+  },
+  "exceed-char": "cannot exceed 20 char",
+  "fomr": {
+    "email": "عنوان البريد الإلكتروني"
+  },
+  "form": {
+    "login": {
+      "description": "يرجى إدخال بريدك الإلكتروني وكلمة المرور للمتابعة"
+    }
+  },
+  "login": {
+    "forgetpassword": "هل نسيت كلمة المرور؟",
+    "form": {
+      "title": "تسجيل الدخول إلى الحساب"
+    },
+    "password": "كلمة المرور",
+    "submit": "تسجيل الدخول"
+  },
+  "notfound": "يبدو أنك ضاعت....",
+  "nuber-2": "$89,000",
+  "number": "40,689",
+  "number_1": "10293",
+  "number_3": "2040",
+  "percentage": "8.5",
+  "percentage-1": "1.3",
+  "precent-2": "4.3%",
+  "precent-3": "1.8",
+  "submit": "التسجيل"
+}

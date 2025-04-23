@@ -1,0 +1,120 @@
+<app-layout>
+  <h1 class="text-main-title text-[32px] font-bold mb-[15px] text-center">
+    {{ "login.form.title" | translate }}
+  </h1>
+  <p class="text-main-title text-description-size mb-[37px] text-center">
+    {{ "form.login.description" | translate }}
+  </p>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()" class="mx-auto">
+    <!-- Email -->
+    <div class="mb-[40px]">
+      <label
+        for="email"
+        class="block text-main-title text-description-size font-medium mb-[15px]"
+        >{{ "fomr.email" | translate }}</label
+      >
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="bg-[#F1F4F9] border border-[#D8D8D8] rounded-[8px] p-[16px] w-full"
+        [placeholder]="'email.placeholder' | translate"
+      />
+      <div class="validation-msg">
+        @if (email.touched&& email.dirty) { @if (email.getError('required')) {
+        <p-messages
+          [value]="[
+            {
+              severity: 'error',
+              summary: 'validation error',
+              detail: 'email is required'
+            }
+          ]"
+          [enableService]="false"
+          [closable]="false"
+        />
+        } @if (email.getError('email')) {
+        <p-messages
+          [value]="[
+            {
+              severity: 'error',
+              summary: 'validation error',
+              detail: 'email not valid'
+            }
+          ]"
+          [enableService]="false"
+          [closable]="false"
+        />
+        } }
+      </div>
+    </div>
+    <!-- Password -->
+    <div class="mb-[40px]">
+      <div class="flex justify-between items-center mb-[15px]">
+        <label
+          for="password"
+          class="block text-main-title text-description-size font-medium"
+        >
+          {{ "login.password" | translate }}
+        </label>
+        <p class="text-[#797a7c] text-description-size font-medium">
+          {{ "login.forgetpassword" | translate }}
+        </p>
+      </div>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder=""
+        class="bg-[#F1F4F9] border border-[#D8D8D8] rounded-[8px] p-[16px] w-full text-gray-800 placeholder-gray-400 placeholder-shown:bg-[url('./assets/images/Password.svg')] placeholder-shown:bg-no-repeat placeholder-shown:bg-[20px_center] placeholder-shown:bg-[length:100px_100px]"
+      />
+
+      <div class="validation-msg">
+        @if (password.dirty && password.touched) { @if
+        (password.getError('required')) {
+        <p-messages
+          [value]="[
+            {
+              severity: 'error',
+              summary: 'validation error',
+              detail: 'password is required'
+            }
+          ]"
+          [enableService]="false"
+          [closable]="false"
+          [styleClass]="''"
+        />
+        } @if (password.getError('minlength')) {
+        <p-messages
+          [value]="[
+            {
+              severity: 'error',
+              summary: 'validation error',
+              detail: 'must be at least 3 char'
+            }
+          ]"
+          [enableService]="false"
+          [closable]="false"
+        />
+        } @if (password.getError('maxlength')) {
+        <p-messages
+          [value]="[
+            {
+              severity: 'error',
+              summary: 'validation error',
+              detail: 'cannot exceed 20 char'
+            }
+          ]"
+          [enableService]="false"
+          [closable]="false"
+        />
+        } }
+      </div>
+    </div>
+    <app-button
+      [mainColor]="true"
+      type="submit"
+      [title]="'submit' | translate"
+    ></app-button>
+  </form>
+</app-layout>

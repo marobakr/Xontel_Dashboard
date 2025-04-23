@@ -1,0 +1,114 @@
+<section class="h-full">
+  <h1 class="font-bold text-[32px] mb-6 flex items-center gap-2">
+    <p>
+      {{ "Posts_Lists" | translate }}
+    </p>
+    <span>></span>
+    <span class="font-normal"> {{ "Post" | translate }}</span>
+  </h1>
+
+  <form
+    class="w-1/2 h-full text-[#6C6C6C]"
+    [formGroup]="userForm"
+    (submit)="onSubmit()"
+  >
+    <div class="flex h-full flex-col justify-between">
+      <div>
+        <div class="w-full mb-3">
+          <label for="title" class="block mb-2 text-sm">{{
+            "Title" | translate
+          }}</label>
+          <input
+            type="text"
+            id="title"
+            class="border border-[#6B6B6B] text-main-title text-[14px] rounded-md block w-full p-4 bg-[#F8F8F8]"
+            [placeholder]="'Add-Title' | translate"
+            formControlName="title"
+          />
+          <div class="min-h-[1.25rem] mt-1 text-red-500 text-sm">
+            @if (userForm.get('title')?.invalid &&
+            userForm.get('title')?.touched) { @if
+            (userForm.get('title')?.errors?.['required']) {
+            <p-messages
+              [value]="[
+                {
+                  severity: 'error',
+                  summary: 'validation error',
+                  detail: 'Title is required'
+                }
+              ]"
+              [enableService]="false"
+              [closable]="false"
+            />
+            } }
+          </div>
+        </div>
+        <div class="w-full mb-3">
+          <label for="body" class="block mb-2 text-sm">{{
+            "Body" | translate
+          }}</label>
+          <input
+            type="text"
+            id="body"
+            class="border border-[#6B6B6B] text-main-title text-[14px] rounded-md block w-full p-4 bg-[#F8F8F8]"
+            [placeholder]="'Add-Body' | translate"
+            formControlName="body"
+          />
+          <div class="min-h-[1.25rem] mt-1 text-red-500 text-sm">
+            @if (userForm.get('body')?.invalid && userForm.get('body')?.touched)
+            { @if (userForm.get('body')?.errors?.['required']) {
+
+            <p-messages
+              [value]="[
+                {
+                  severity: 'error',
+                  summary: 'validation error',
+                  detail: 'Body is required'
+                }
+              ]"
+              [enableService]="false"
+              [closable]="false"
+            />
+            } }
+          </div>
+        </div>
+        <div class="w-full mb-3">
+          <label for="UserID" class="block mb-2 text-sm">{{
+            "User-ID" | translate
+          }}</label>
+          <input
+            type="text"
+            id="id"
+            class="border border-[#6B6B6B] text-main-title text-[14px] rounded-md block w-full p-4 bg-[#F8F8F8]"
+            [placeholder]="'Add-User-ID' | translate"
+            formControlName="userId"
+          />
+          <div class="min-h-[1.25rem] mt-1 text-red-500 text-sm">
+            @if (userForm.get('userId')?.invalid &&
+            userForm.get('userId')?.touched) { @if
+            (userForm.get('userId')?.errors?.['required']) {
+            <p-messages
+              [value]="[
+                {
+                  severity: 'error',
+                  summary: 'validation error',
+                  detail: 'User ID is required'
+                }
+              ]"
+              [enableService]="false"
+              [closable]="false"
+            />
+            } }
+          </div>
+        </div>
+      </div>
+
+      <app-button
+        class="w-1/2 mb-[88px]"
+        [title]="'Save' | translate"
+        [type]="'submit'"
+        [mainColor]="true"
+      />
+    </div>
+  </form>
+</section>

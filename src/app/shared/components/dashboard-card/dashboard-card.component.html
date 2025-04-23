@@ -1,0 +1,21 @@
+<div class="p-4 bg-white flex flex-col justify-center gap-7 rounded-md">
+  <div class="flex items-center justify-between">
+    <div>
+      <p class="mb-2.5 font-semibold text-[#565656]">{{label}}</p>
+      <p class="text-[28px] font-bold">{{number}}</p>
+    </div>
+    <div class="p-4  rounded-[23px]" [ngClass]="bg">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div class="flex items-center  gap-1.5">
+    @if(isGross){
+    <app-gross-icon />
+    }
+    @else {
+    <app-loss-icon />
+    }
+    <p class="font-semibold"> <span class="text-[#00B69B]"
+        [ngClass]="{'!text-[#F93C65]':!isGross}">{{percentage}}</span> {{period}}</p>
+  </div>
+</div>

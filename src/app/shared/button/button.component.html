@@ -1,0 +1,10 @@
+<button
+  class="w-full py-[15px] capitalize border-[2px] cursor-pointer transition-colors duration-200"
+  [type]="type"
+  [ngClass]="{
+    'bg-main text-white border-white hover:bg-main/80': mainColor,
+    'bg-white text-main border-main hover:bg-gray-50': !mainColor
+  }"
+>
+  {{ title }}
+</button>

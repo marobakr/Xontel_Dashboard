@@ -1,0 +1,42 @@
+<aside class="w-60 py-5">
+  <p class="text-center py-2 text-[#4880FF] font-extrabold text-xl mb-8">
+    XonTel <span class="text-black">Dash</span>
+  </p>
+  <ul>
+    <li
+      class="relative mb-4 flex items-center justify-center"
+      routerLinkActive="before:content-[''] before:absolute before:start-0 before:w-1.5 before:h-full before:rounded-e-md before:bg-[#4880FF]"
+    >
+      <a
+        [routerLink]="[
+          '/',
+          _languageService.getLanguage() | async,
+          'home',
+          'dashboard'
+        ]"
+        routerLinkActive="bg-[#4880FF] text-white"
+        class="px-14 py-4 text-[#202224] font-medium rounded-md transition-all duration-400 ease-in-out"
+      >
+        {{ "Dashboard" | translate }}
+      </a>
+    </li>
+
+    <li
+      class="relative mb-4 flex items-center justify-center"
+      routerLinkActive="before:content-[''] before:absolute before:start-0 before:w-1.5 before:h-full before:rounded-e-md before:bg-[#4880FF]"
+    >
+      <a
+        [routerLink]="[
+          '/',
+          _languageService.getLanguage() | async,
+          'home',
+          'posts-list'
+        ]"
+        routerLinkActive="bg-[#4880FF] text-white"
+        class="px-14 py-4 text-[#202224] font-medium rounded-md transition-all duration-400 ease-in-out"
+      >
+        {{ "Posts_List" | translate }}
+      </a>
+    </li>
+  </ul>
+</aside>

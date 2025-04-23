@@ -1,0 +1,15 @@
+<app-layout>
+  <figure>
+    <img src="./assets/images/404.png" alt="" />
+  </figure>
+  <h1 class="mb-[20px] text-main-title text-[32px] font-bold">
+    {{ "notfound" | translate }}
+  </h1>
+
+  <app-button
+    [routerLink]="['/', languageService$ | async, 'home']"
+    type="button"
+    [mainColor]="true"
+    [title]="'backtoDathboard' | translate"
+  ></app-button>
+</app-layout>

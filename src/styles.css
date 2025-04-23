@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+@theme {
+  --color-main: #4880ff;
+  --color-main-title: #202224;
+  --text-title-size: calc(2.1875rem * 1); /* 35px */
+  --text-subtitle-size: calc(1.4375rem * 1); /* 23px */
+  --text-category-size: calc(1rem * 1); /* 16px */
+  --text-description-size: calc(1.125rem * 1); /* 18px */
+  --text-price-size: calc(1.4375rem * 1); /* 23px */
+  --text-start-size: calc(1.875rem * 1); /* 30px */
+}
+/* Regular + Variable Weight */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/font/NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.woff2")
+    format("truetype");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic + Variable Weight */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/font/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.woff2")
+    format("truetype");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+}
+button {
+  border-radius: 12px;
+}

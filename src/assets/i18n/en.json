@@ -1,0 +1,72 @@
+{
+  "Actions": "Actions",
+  "Add": "Add",
+  "Add-Body": "Add Body",
+  "Add-Title": "Add Title",
+  "Add-User-ID": "Add User ID",
+  "Admin": "Admin",
+  "Body": "Body",
+  "Customers_Analytics": "Customers Analytics",
+  "Dash": "Dash",
+  "Dashboard": "Dashboard",
+  "Down_from yesterday": "Down from yesterday",
+  "Down_from_yesterday": "Down from yesterday",
+  "Filter_By": "Filter By",
+  "ID": "ID",
+  "Moni_Roy": "Moni Roy",
+  "Post": "Post",
+  "Posts-Lists": "Posts Lists",
+  "Posts_List": "Posts List",
+  "Posts_Lists": "Posts Lists",
+  "Reset_Filter": "Reset Filter",
+  "Sales_Analytics": "Sales Analytics",
+  "Sales_Details": "Sales Details",
+  "Save": "save",
+  "Title": "Title",
+  "Total_Order": "Total Order",
+  "Total_Sales": "Total Sales",
+  "Total_Users": "Total Users",
+  "Up_from_past_week": "Up from past week",
+  "Up_from_yesterday": "Up from yesterday",
+  "User-ID": "User ID",
+  "UserId": "UserId",
+  "User_Id": "User Id",
+  "XonTel": "XonTel",
+  "atleast-char": "must be at least 3 char",
+  "backtoDathboard": "Back to Dashboard",
+  "delete": {
+    "cancel": "cancel",
+    "confirm": "Are you sure yaou want to delete this item?",
+    "delete": "delete"
+  },
+  "email": {
+    "placeholder": "name@flowbite.com"
+  },
+  "exceed-char": "cannot exceed 20 char",
+  "fomr": {
+    "email": "Email address"
+  },
+  "form": {
+    "login": {
+      "description": "Please enter your email and password to continue"
+    }
+  },
+  "login": {
+    "forgetpassword": "Forget Password?",
+    "form": {
+      "title": "Login to Account"
+    },
+    "password": "Password",
+    "submit": "Sign In"
+  },
+  "notfound": "Looks like you’ve got lost….",
+  "nuber-2": "$89,000",
+  "number": "40,689",
+  "number_1": "10293",
+  "number_3": "2040",
+  "percentage": "8.5",
+  "percentage-1": "1.3",
+  "precent-2": "4.3%",
+  "precent-3": "1.8",
+  "submit": "Submit"
+}

@@ -1,0 +1,93 @@
+<header class="h-[70px] flex items-center px-[31px] py-4">
+  <div class="flex justify-between items-center w-full">
+    <button
+      (click)="toggleSidebar()"
+      class="lg:hidden text-gray-500 hover:text-gray-700 cursor-pointer"
+      aria-label="Toggle sidebar"
+    >
+      <i class="pi pi-bars text-xl"></i>
+    </button>
+    <div class="relative w-full max-w-md lg:w-[388px] ms-[47px]">
+      <i
+        class="pi pi-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+      ></i>
+      <input
+        type="text"
+        placeholder="Search"
+        class="pl-12 pr-4 py-1.5 w-full bg-[#F5F6FA] rounded-full border border-[#D5D5D5] focus:outline-0"
+      />
+    </div>
+    <div class="flex items-center gap-8">
+      <div class="relative p-2">
+        <app-notification-icon />
+        <div
+          class="rounded-full absolute top-0 end-0 flex items-center justify-center w-5 h-5 bg-[#F93C65] text-white font-bold text-xs"
+        >
+          <span>16</span>
+        </div>
+      </div>
+      {{ showMenu }}
+      <div
+        (click)="toggleMenu()"
+        class="flex items-center gap-2 relative cursor-pointer"
+      >
+        @if (currentLang === 'ar') {
+        <span>🇸🇦</span>
+        } @else {
+        <span>🇺🇸</span>
+        }
+        <p class="text-[#646464] font-medium text-sm">
+          {{ currentLang$ | async }}
+        </p>
+        <app-expand-more-icon />
+
+        <!-- Dropdown -->
+        @if (showMenu) {
+        <div
+          id="langDropdown"
+          class="z-50 bg-white divide-y divide-gray-100 rounded-2xl shadow w-28 absolute top-full right-0 mt-2"
+        >
+          <ul class="py-4 text-sm text-gray-700 dark:text-gray-200">
+            <li>
+              <a
+                (click)="changeLang('ar')"
+                class="flex items-center justify-between px-4 py-2 text-black hover:bg-gray-100 dark:hover:text-black text-category-size"
+              >
+                🇸🇦
+                <span> العربية </span>
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="changeLang('en')"
+                class="flex items-center justify-between px-4 py-2 text-black hover:bg-gray-100 dark:hover:text-black text-category-size"
+              >
+                🇺🇸
+                <span> English </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        }
+      </div>
+      <div class="flex items-center gap-5">
+        <img
+          src="https://s3-alpha-sig.figma.com/img/95bc/a3ec/af6d28d115834f85b6163b6e58e91c7c?Expires=1746403200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oDqBF7LaFFxpAe6OZTmAHl16RWVivRhosDoQRRgEdVkLwsWF6opBL78YwGwkXbhITALSNzynsoWwmjPQRhgSznVVx3w5z5YGUj4uO6Go0JrJaw3gYWHbgrjaJiCDRXCQbHKRSNs2dGZ269i0Nso4GeJsMRSXOUfHTVlCL4-3GoyqdG69-iqX1Xxw773Hyk4aH2LJNRUsiSHMDENUAlV~Y1uwmZdSYKo19VSCZK3Xn6xIioOFvbwY4AYX3F7RRXtbfan2W37TH4R~BVfJJubBEAOT-GIUS5AAn3ou7hHlyKbvfNFnEyNQlOWwJo~WWFgNRpGFtNYMLC4sVuKOwU0Cqg__"
+          alt="userImg"
+          class="w-12 h-12 rounded-full bg-[#D8D8D8]"
+        />
+        <div class="flex flex-col gap-0.5">
+          <p class="font-bold text-sm text-[#404040]">
+            {{ "Moni Roy" | translate }}
+          </p>
+          <p class="text-xs font-semibold text-[#565656]">
+            {{ "Admin" | translate }}
+          </p>
+        </div>
+        <div class="px-1.5 py-2 rounded-full border-[0.2px] border-[#5C5C5C]">
+          <app-expand-more-icon />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

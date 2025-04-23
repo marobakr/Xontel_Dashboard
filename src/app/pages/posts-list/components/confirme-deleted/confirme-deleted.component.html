@@ -1,0 +1,36 @@
+@if (visible) {
+<section
+  class="absolute flex items-center justify-center top-0 left-0 w-full h-full"
+>
+  <div class="w-fit py-[48px] px-[40px] bg-white rounded-[16px] z-5 relative">
+    <div class="flex items-center gap-x-[8px] justify-between pb-[48px]">
+      <figure>
+        <img class="w-[32px]" src="./assets/images/delete.svg" alt="delete" />
+      </figure>
+      <h1 class="text-[28px] font-bold">
+        {{ "delete.confirm" | translate }}
+      </h1>
+    </div>
+    <div class="flex justify-center items-center gap-x-[25px]">
+      <app-button
+        (click)="onConfirm.emit()"
+        class="w-full"
+        [mainColor]="true"
+        [title]="'delete.delete' | translate"
+        type="button"
+      >
+      </app-button>
+      <app-button
+        (click)="onCancel.emit()"
+        class="w-full"
+        [mainColor]="false"
+        [title]="'delete.cancel' | translate"
+        type="button"
+      >
+      </app-button>
+    </div>
+  </div>
+  <div class="absolute inset-0 z-3 bg-black/50"></div>
+</section>
+
+}
