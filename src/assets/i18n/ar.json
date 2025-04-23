@@ -23,7 +23,7 @@
   "Sales_Analytics": "تحليلات المبيعات",
   "Sales_Details": "تفاصيل المبيعات",
   "Save": "حفظ",
-  "Search": "Search",
+  "Search": "ابحث",
   "Select-User-ID": "Select User ID",
   "Title": "العنوان",
   "Total_Order": "إجمالي الطلبات",
@@ -45,7 +45,7 @@
   "email": {
     "placeholder": "البريد الإلكتروني"
   },
-  "exceed-char": "cannot exceed 20 char",
+  "exceed-char": "لا يمكن أن يتجاوز 20 حرف",
   "fomr": {
     "email": "عنوان البريد الإلكتروني"
   },
