@@ -71,13 +71,16 @@
         </div>
         }
       </div>
-      <div class="flex items-center gap-2 sm:gap-5">
+      <div
+        (click)="toggleMenuLogout()"
+        class="flex items-center gap-2 sm:gap-5"
+      >
         <img
           src="https://s3-alpha-sig.figma.com/img/95bc/a3ec/af6d28d115834f85b6163b6e58e91c7c?Expires=1746403200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=oDqBF7LaFFxpAe6OZTmAHl16RWVivRhosDoQRRgEdVkLwsWF6opBL78YwGwkXbhITALSNzynsoWwmjPQRhgSznVVx3w5z5YGUj4uO6Go0JrJaw3gYWHbgrjaJiCDRXCQbHKRSNs2dGZ269i0Nso4GeJsMRSXOUfHTVlCL4-3GoyqdG69-iqX1Xxw773Hyk4aH2LJNRUsiSHMDENUAlV~Y1uwmZdSYKo19VSCZK3Xn6xIioOFvbwY4AYX3F7RRXtbfan2W37TH4R~BVfJJubBEAOT-GIUS5AAn3ou7hHlyKbvfNFnEyNQlOWwJo~WWFgNRpGFtNYMLC4sVuKOwU0Cqg__"
           alt="userImg"
           class="w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-[#D8D8D8]"
         />
-        <div class="hidden sm:flex flex-col gap-0.5">
+        <div class="hidden sm:flex flex-col gap-0.5 cursor-pointer">
           <p class="font-bold text-sm text-[#404040]">
             {{ "Moni Roy" | translate }}
           </p>
@@ -86,7 +89,28 @@
           </p>
         </div>
         <div class="px-1.5 py-2 rounded-full border-[0.2px] border-[#5C5C5C]">
-          <app-expand-more-icon />
+          <div class="relative">
+            <app-expand-more-icon />
+            @if (showMenuLogout) {
+            <div
+              id="langDropdown"
+              class="z-50 bg-white divide-y divide-gray-100 rounded-2xl shadow w-28 absolute translate-x-full top-[20px] right-0 mt-2"
+            >
+              <ul class="py-4 text-sm text-gray-700 dark:text-gray-200">
+                <li>
+                  <a
+                    (click)="logout()"
+                    class="cursor-pointer flex items-center justify-between p-2 text-black hover:bg-gray-100 dark:hover:text-black text-category-size"
+                  >
+                    <span class="line-clamp-1">
+                      {{ "logout" | translate }}
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            }
+          </div>
         </div>
       </div>
     </div>

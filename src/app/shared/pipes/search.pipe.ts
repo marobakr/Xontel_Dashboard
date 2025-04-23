@@ -9,6 +9,6 @@ export class SearchPipe implements PipeTransform {
   transform(data: IPost[], search: string): IPost[] {
     if (search === null) return [];
     if (!data || !search) return data;
-    return data.filter((item) => item.id.toString().includes(search));
+    return data.filter((item) => item.userId.toString().includes(search));
   }
 }

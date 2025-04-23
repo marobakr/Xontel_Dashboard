@@ -26,6 +26,7 @@ import { SidebarService } from '../services/sidebar.service';
 })
 export class TopNavComponent implements OnDestroy {
   showMenu!: boolean;
+  showMenuLogout!: boolean;
   currentLang: string = '';
 
   private destroy$ = new Subject<void>();
@@ -59,5 +60,14 @@ export class TopNavComponent implements OnDestroy {
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
+  }
+
+  toggleMenuLogout(): void {
+    this.showMenuLogout = !this.showMenuLogout;
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this._router.navigate(['/login']);
   }
 }

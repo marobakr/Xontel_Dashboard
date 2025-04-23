@@ -52,14 +52,11 @@ export const routes: Routes = [
               import(
                 '../app/shared/components/edit-add/edit-add.component'
               ).then((m) => m.EditAddComponent),
-            // resolve: {
-            //   post: detailsResolver,
-            // },
           },
         ],
       },
     ],
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
   },
 
   /* Auth Layout */

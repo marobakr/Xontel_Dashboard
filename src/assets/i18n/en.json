@@ -62,6 +62,7 @@
     "password": "Password",
     "submit": "Sign In"
   },
+  "logout": "logout",
   "notfound": "Looks like you’ve got lost….",
   "nuber-2": "$89,000",
   "number": "40,689",

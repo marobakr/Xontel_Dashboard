@@ -4,7 +4,7 @@
     <!-- filter -->
     @if (showFilterPopup) {
     <div
-      class="absolute flex items-center justify-center top-0 left-0 w-full h-full"
+      class="absolute flex items-center justify-center top-0 left-0 w-full h-[100vh]"
     >
       <div class="bg-white min-w-[390px] z-5 relative p-6 rounded-[26px]">
         <h2 class="text-[#202224] font-bold text-description-size">
@@ -27,7 +27,10 @@
         />
       </div>
 
-      <div class="absolute inset-0 z-3 bg-black/50"></div>
+      <div
+        class="absolute inset-0 z-3 bg-black/50"
+        (click)="toggleFilterPopup()"
+      ></div>
     </div>
     }
 
@@ -96,24 +99,42 @@
     >
       <ng-template pTemplate="header">
         <tr class="uppercase">
-          <th style="min-width: 100px">{{ "ID" | translate }}</th>
-          <th style="min-width: 100px">{{ "UserId" | translate }}</th>
-          <th style="min-width: 200px">{{ "Title" | translate }}</th>
-          <th style="min-width: 300px">{{ "Body" | translate }}</th>
-          <th style="min-width: 100px">{{ "Actions" | translate }}</th>
+          <th style="min-width: 100px; text-align: center">
+            {{ "ID" | translate }}
+          </th>
+          <th style="min-width: 100px; text-align: center">
+            {{ "UserId" | translate }}
+          </th>
+          <th style="min-width: 200px; text-align: center">
+            {{ "Title" | translate }}
+          </th>
+          <th style="min-width: 300px; text-align: center">
+            {{ "Body" | translate }}
+          </th>
+          <th style="min-width: 100px; text-align: center">
+            {{ "Actions" | translate }}
+          </th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product let-i="rowIndex">
         <tr>
-          <td>{{ i + 1 }}</td>
-          <td>{{ product.userId }}</td>
-          <td [title]="product.title" class="truncate max-w-[200px]">
+          <td style="text-align: center">{{ i + 1 }}</td>
+          <td style="text-align: center">{{ product.userId }}</td>
+          <td
+            style="text-align: center"
+            [title]="product.title"
+            class="truncate max-w-[200px]"
+          >
             {{ product.title }}
           </td>
-          <td [title]="product.body" class="truncate max-w-[200px]">
+          <td
+            style="text-align: center"
+            [title]="product.body"
+            class="truncate max-w-[200px]"
+          >
             {{ product.body }}
           </td>
-          <td>
+          <td class="flex items-center gap-x-2 justify-center">
             <div
               class="flex w-fit items-center border border-gray-300 rounded-lg"
             >
