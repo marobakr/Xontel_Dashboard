@@ -1,10 +1,12 @@
-<div class="flex relative">
+<div class="flex relative bg-white">
   <div
-    [class.ltr:translate-x-0]="isOpen$ | async"
-    [class.ltr:-translate-x-full]="!(isOpen$ | async)"
-    [class.rtl:translate-x-0]="isOpen$ | async"
-    [class.rtl:translate-x-full]="!(isOpen$ | async)"
-    class="fixed bg-white lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out z-20 h-screen"
+    class=""
+    [class.translate-x-0]="isOpen$ | async"
+    [class.-translate-x-full]="!(isOpen$ | async) && !(isRtl$ | async)"
+    [class.translate-x-full]="!(isOpen$ | async) && (isRtl$ | async)"
+    class="bg-white fixed lg:relative lg:translate-x-0 transition-transform items-stretch duration-300 ease-in-out z-20"
+    [class.right-0]="isRtl$ | async"
+    [class.left-0]="!(isRtl$ | async)"
   >
     <app-side-nav />
   </div>
@@ -14,13 +16,11 @@
   <div class="fixed inset-0 bg-[#00000061] z-10" (click)="closeSidebar()"></div>
   }
 
-  <div class="h-screen flex flex-col flex-1">
+  <div class="flex flex-col flex-1">
     <!-- Top Nav -->
     <app-top-nav />
     <!-- Main Content -->
-    <main
-      class="flex-1 p-7 ltr:border-s rtl:border-e border-[#E0E0E0] bg-[#F5F6FA]"
-    >
+    <main class="flex-1 p-7 border-s border-s-[#E0E0E0] bg-[#F5F6FA]">
       <app-home></app-home>
     </main>
   </div>

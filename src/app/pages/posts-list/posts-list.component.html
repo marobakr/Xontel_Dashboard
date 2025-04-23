@@ -1,100 +1,153 @@
-<h1 class="font-bold text-[32px] mb-7">{{ "Posts_Lists" | translate }}</h1>
-<!-- filter -->
-<div class="flex items-center justify-between mb-4">
-  <div
-    class="bg-white border border-gray-300 rounded-xl w-fit flex items-center p-0"
-  >
-    <div class="p-5 border-e border-gray-300 w-fit">
-      <app-filter-icon />
-    </div>
-    <p class="p-5 border-e border-gray-300 w-fit text-sm font-bold">
-      {{ "Filter_By" | translate }}
-    </p>
+<section>
+  <div class="container mx-auto">
+    <h1 class="font-bold text-[32px] mb-7">{{ "Posts_Lists" | translate }}</h1>
+    <!-- filter -->
+    @if (showFilterPopup) {
     <div
-      class="p-5 border-e border-gray-300 w-fit text-sm font-bold flex items-center gap-1 cursor-pointer"
+      class="absolute flex items-center justify-center top-0 left-0 w-full h-full"
     >
-      <span>{{ "User_Id" | translate }}</span>
-      <app-expand-more-icon color="#000" />
-    </div>
-    <div class="p-5 w-fit text-sm font-bold flex items-center gap-1">
-      <app-reset-icon />
-      <span class="text-[#EA0234]">{{ "Reset_Filter" | translate }}</span>
-    </div>
-  </div>
-  <div
-    [routerLink]="[
-      '/',
-      _languageService.getLanguage() | async,
-      'home',
-      'add-post'
-    ]"
-    class="relative cursor-pointer border border-[#CBCBCB] p-4 px-5 bg-white rounded-xl w-fit flex items-center gap-1 before:content-[''] before:absolute before:-start-4 before:w-[0.3px] before:h-14 before:bg-gray-300"
-  >
-    <app-plus-icon />
-    <span class="text-sm text-[#202224] font-bold">{{
-      "Add" | translate
-    }}</span>
-  </div>
-</div>
+      <div class="bg-white min-w-[390px] z-5 relative p-6 rounded-[26px]">
+        <h2 class="text-[#202224] font-bold text-description-size">
+          {{ "Select-User-ID" | translate }}
+        </h2>
+        <hr class="border-[#97979714] border-b-[1px] mt-[21px] mb-[24px]" />
+        <input
+          type="text"
+          [placeholder]="'Search' | translate"
+          class="w-full border border-gray-300 rounded-xl py-4 px-2"
+          [(ngModel)]="tempSearchKey"
+        />
+        <hr class="border-[#97979714] border-b-[1px] mt-[21px] mb-[32px]" />
+        <app-button
+          class="text-[12px] font-bold"
+          [title]="'ApplyNow' | translate"
+          [mainColor]="true"
+          type="submit"
+          (click)="applyFilter()"
+        />
+      </div>
 
-<!--Table-->
-<p-table
-  [value]="products"
-  [paginator]="true"
-  [rows]="rows"
-  [first]="first"
-  [totalRecords]="totalRecords"
-  [showFirstLastIcon]="false"
-  [showJumpToPageDropdown]="false"
-  [showCurrentPageReport]="true"
-  [showPageLinks]="true"
-  [tableStyle]="{ 'min-width': '50rem' }"
-  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-  (onPage)="pageChange($event)"
-  [lazy]="true"
->
-  <ng-template pTemplate="header">
-    <tr class="uppercase">
-      <th>{{ "ID" | translate }}</th>
-      <th>{{ "UserId" | translate }}</th>
-      <th>{{ "Title" | translate }}</th>
-      <th>{{ "Body" | translate }}</th>
-      <th>{{ "Actions" | translate }}</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-product let-i="rowIndex">
-    <tr>
-      <td>{{ i + 1 }}</td>
-      <td>{{ product.userId }}</td>
-      <td [title]="product.title" class="truncate max-w-[200px]">
-        {{ product.title }}
-      </td>
-      <td [title]="product.body" class="truncate max-w-[200px]">
-        {{ product.body }}
-      </td>
-      <td>
-        <div class="flex w-fit items-center border border-gray-300 rounded-lg">
-          <div class="border-e border-e-gray-300 p-2 cursor-pointer">
-            <app-edit-icon
-              [routerLink]="[
-                '/',
-                _languageService.getLanguage() | async,
-                'home',
-                'edit-post',
-                product.id
-              ]"
-            />
-          </div>
-          <div (click)="deletePost(product.id)" class="p-2 cursor-pointer">
-            <app-trash-icon />
-          </div>
+      <div class="absolute inset-0 z-3 bg-black/50"></div>
+    </div>
+    }
+
+    <div class="flex items-center justify-between mb-4">
+      <div
+        class="bg-white border border-gray-300 rounded-xl w-fit flex items-center p-0"
+      >
+        <div class="p-5 border-e border-gray-300 w-fit">
+          <app-filter-icon />
         </div>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
-<app-confirme-deleted
-  #confirmDialog
-  (onConfirm)="onConfirmDelete()"
-  (onCancel)="onCancelDelete()"
-/>
+        <p class="p-5 border-e border-gray-300 w-fit text-sm font-bold">
+          {{ "Filter_By" | translate }}
+        </p>
+        <!-- CLick here to OPen popup filter -->
+        <div
+          (click)="toggleFilterPopup()"
+          class="p-5 border-e border-gray-300 w-fit text-sm font-bold flex items-center gap-1 cursor-pointer"
+        >
+          <span>{{ "User_Id" | translate }}</span>
+          <app-expand-more-icon color="#000" />
+        </div>
+        <div
+          (click)="searchKey = ''"
+          class="cursor-pointer p-5 w-fit text-sm font-bold flex items-center gap-1"
+        >
+          <app-reset-icon />
+          <span class="text-[#EA0234]">{{ "Reset_Filter" | translate }}</span>
+        </div>
+      </div>
+      <div
+        [routerLink]="[
+          '/',
+          _languageService.getLanguage() | async,
+          'home',
+          'add-post'
+        ]"
+        class="relative cursor-pointer border border-[#CBCBCB] p-4 px-5 bg-white rounded-xl w-fit flex items-center gap-1 before:content-[''] before:absolute before:-start-4 before:w-[0.3px] before:h-14 before:bg-gray-300"
+      >
+        <app-plus-icon />
+        <span class="text-sm text-[#202224] font-bold">{{
+          "Add" | translate
+        }}</span>
+      </div>
+    </div>
+
+    <!--Table-->
+    @if ((products | search : searchKey).length > 0) {
+    <p-table
+      [value]="products | search : searchKey"
+      [paginator]="true"
+      [rows]="rows"
+      [first]="first"
+      [totalRecords]="totalRecords"
+      [showFirstLastIcon]="false"
+      [showJumpToPageDropdown]="false"
+      [showCurrentPageReport]="true"
+      [showPageLinks]="true"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [scrollable]="true"
+      scrollHeight="flex"
+      [scrollDirection]="'horizontal'"
+      styleClass="p-datatable-sm overflow-x-auto"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      (onPage)="pageChange($event)"
+      [lazy]="true"
+    >
+      <ng-template pTemplate="header">
+        <tr class="uppercase">
+          <th style="min-width: 100px">{{ "ID" | translate }}</th>
+          <th style="min-width: 100px">{{ "UserId" | translate }}</th>
+          <th style="min-width: 200px">{{ "Title" | translate }}</th>
+          <th style="min-width: 300px">{{ "Body" | translate }}</th>
+          <th style="min-width: 100px">{{ "Actions" | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-product let-i="rowIndex">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.userId }}</td>
+          <td [title]="product.title" class="truncate max-w-[200px]">
+            {{ product.title }}
+          </td>
+          <td [title]="product.body" class="truncate max-w-[200px]">
+            {{ product.body }}
+          </td>
+          <td>
+            <div
+              class="flex w-fit items-center border border-gray-300 rounded-lg"
+            >
+              <div class="border-e border-e-gray-300 p-2 cursor-pointer">
+                <app-edit-icon
+                  [routerLink]="[
+                    '/',
+                    _languageService.getLanguage() | async,
+                    'home',
+                    'edit-post',
+                    product.id
+                  ]"
+                />
+              </div>
+              <div (click)="deletePost(product.id)" class="p-2 cursor-pointer">
+                <app-trash-icon />
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    } @else {
+    <div class="flex items-center justify-center p-8">
+      <p class="text-center text-gray-500 text-lg">
+        {{ searchKey ? "No matching posts found" : "No posts available" }}
+      </p>
+    </div>
+    }
+
+    <app-confirme-deleted
+      #confirmDialog
+      (onConfirm)="onConfirmDelete()"
+      (onCancel)="onCancelDelete()"
+    />
+  </div>
+</section>

@@ -1,58 +1,62 @@
-<h1 class="font-bold text-[32px] mb-7">{{ "Dashboard" | translate }}</h1>
-<div class="grid grid-cols-12 gap-2 mb-6">
-  <app-dashboard-card
-    class="col-span-12 xl:col-span-3"
-    label="{{ 'Total_Users' | translate }}"
-    number="{{ 'number' | translate }}"
-    percentage="{{ 'percentage' | translate }}"
-    period="{{ 'Up_from_yesterday' | translate }}"
-    bg="bg-[#8280ff4a]"
-    ><app-group-icon />
-  </app-dashboard-card>
-  <app-dashboard-card
-    class="col-span-12 xl:col-span-3"
-    label="{{ 'Total_Order' | translate }}"
-    number="{{ 'number_1' | translate }}"
-    percentage="{{ 'percentage-1' | translate }}"
-    period=" {{ 'Up_from_past_week' | translate }}"
-    bg="bg-[#FEC53D4a]"
-    ><app-box-icon />
-  </app-dashboard-card>
-  <app-dashboard-card
-    class="col-span-12 xl:col-span-3"
-    label="{{ 'Total_Sales' | translate }}"
-    number="{{ 'nuber-2' | translate }}"
-    percentage="{{ 'precent-2' | translate }}"
-    period=" {{ 'Down_from_yesterday' | translate }}"
-    bg="bg-[#4AD9914a]"
-    [isGross]="false"
-    ><app-sales-icon />
-  </app-dashboard-card>
-  <app-dashboard-card
-    class="col-span-12 xl:col-span-3"
-    label="{{ 'Total_Users' | translate }}"
-    number="{{ 'number_3' | translate }}"
-    percentage="{{ 'precent-3' | translate }}"
-    period="{{ 'Up_from_past_week' | translate }}"
-    bg="bg-[#FF90664a]"
-    ><app-pending-icon />
-  </app-dashboard-card>
-</div>
-<div class="p-8 rounded-md bg-white mb-6">
-  <h3 class="text-2xl font-bold">{{ "Sales_Details" | translate }}</h3>
-  <div class="px-28">
-    <app-bar-chart />
-  </div>
-</div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-bold text-2xl">
-  <div class="p-8 rounded-md bg-white mb-6">
-    <p class="mb-2">{{ "Customers_Analytics" | translate }}</p>
-    <div>
-      <app-doughnut-chart />
+<section>
+  <div class="container mx-auto">
+    <h1 class="font-bold text-[32px] mb-7">{{ "Dashboard" | translate }}</h1>
+    <div class="grid grid-cols-12 gap-2 mb-6">
+      <app-dashboard-card
+        class="col-span-12 xl:col-span-3"
+        label="{{ 'Total_Users' | translate }}"
+        number="{{ 'number' | translate }}"
+        percentage="{{ 'percentage' | translate }}"
+        period="{{ 'Up_from_yesterday' | translate }}"
+        bg="bg-[#8280ff4a]"
+        ><app-group-icon />
+      </app-dashboard-card>
+      <app-dashboard-card
+        class="col-span-12 xl:col-span-3"
+        label="{{ 'Total_Order' | translate }}"
+        number="{{ 'number_1' | translate }}"
+        percentage="{{ 'percentage-1' | translate }}"
+        period=" {{ 'Up_from_past_week' | translate }}"
+        bg="bg-[#FEC53D4a]"
+        ><app-box-icon />
+      </app-dashboard-card>
+      <app-dashboard-card
+        class="col-span-12 xl:col-span-3"
+        label="{{ 'Total_Sales' | translate }}"
+        number="{{ 'nuber-2' | translate }}"
+        percentage="{{ 'precent-2' | translate }}"
+        period=" {{ 'Down_from_yesterday' | translate }}"
+        bg="bg-[#4AD9914a]"
+        [isGross]="false"
+        ><app-sales-icon />
+      </app-dashboard-card>
+      <app-dashboard-card
+        class="col-span-12 xl:col-span-3"
+        label="{{ 'Total_Users' | translate }}"
+        number="{{ 'number_3' | translate }}"
+        percentage="{{ 'precent-3' | translate }}"
+        period="{{ 'Up_from_past_week' | translate }}"
+        bg="bg-[#FF90664a]"
+        ><app-pending-icon />
+      </app-dashboard-card>
+    </div>
+    <div class="p-8 rounded-md bg-white mb-6">
+      <h3 class="text-2xl font-bold">{{ "Sales_Details" | translate }}</h3>
+      <div class="px-28">
+        <app-bar-chart />
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 font-bold text-2xl">
+      <div class="p-8 rounded-md bg-white mb-6">
+        <p class="mb-2">{{ "Customers_Analytics" | translate }}</p>
+        <div>
+          <app-doughnut-chart />
+        </div>
+      </div>
+      <div class="p-8 rounded-md bg-white mb-6">
+        <p class="mb-2">{{ "Sales_Analytics" | translate }}</p>
+        <app-line-chart />
+      </div>
     </div>
   </div>
-  <div class="p-8 rounded-md bg-white mb-6">
-    <p class="mb-2">{{ "Sales_Analytics" | translate }}</p>
-    <app-line-chart />
-  </div>
-</div>
+</section>

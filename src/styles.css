@@ -13,6 +13,29 @@
   --text-price-size: calc(1.4375rem * 1); /* 23px */
   --text-start-size: calc(1.875rem * 1); /* 30px */
 }
+
+@layer base {
+  :root {
+    font-size: 16px;
+  }
+
+  @media (max-width: 499px) {
+    :root {
+      font-size: 10px;
+    }
+  }
+}
+@layer base {
+  :root {
+    font-size: 16px;
+  }
+
+  @media (max-width: 499px) {
+    :root {
+      font-size: 10px;
+    }
+  }
+}
 /* Regular + Variable Weight */
 @font-face {
   font-family: "Nunito Sans";

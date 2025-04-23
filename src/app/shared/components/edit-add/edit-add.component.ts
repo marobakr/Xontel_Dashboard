@@ -5,11 +5,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { DataService } from '../../../core/service/data.service';
+import { LanguageService } from '../../../core/service/language.service';
 import { ButtonComponent } from '../../button/button.component';
 
 @Component({
@@ -30,6 +31,8 @@ export class EditAddComponent implements OnInit {
   _activatedRoute = inject(ActivatedRoute);
   _dataService = inject(DataService);
   _messageService = inject(MessageService);
+  _languageService = inject(LanguageService);
+  _router = inject(Router);
 
   /* Init Form */
   userForm = new FormGroup({
@@ -86,6 +89,9 @@ export class EditAddComponent implements OnInit {
       } else {
         this.updatePost();
       }
+      let lang = 'ar';
+      this._languageService.getLanguage().subscribe((next) => (lang = next));
+      this._router.navigate(['/', lang]);
     } else {
       this.markAllAsTouched();
       return;

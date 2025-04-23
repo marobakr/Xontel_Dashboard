@@ -1,5 +1,6 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
@@ -11,12 +12,14 @@ import {
   PaginatedResponse,
 } from '../../core/service/data.service';
 import { LanguageService } from '../../core/service/language.service';
+import { ButtonComponent } from '../../shared/button/button.component';
 import { EditComponent } from '../../shared/icons/edit/edit.component';
 import { ExpandMoreIconComponent } from '../../shared/icons/expand-more/expand-more.component';
 import { FilterIconComponent } from '../../shared/icons/filter/filter.component';
 import { PlusIconComponent } from '../../shared/icons/plus/plus-icon.component';
 import { ResetIconComponent } from '../../shared/icons/reset/reset.component';
 import { TrashComponent } from '../../shared/icons/trash/trash.component';
+import { SearchPipe } from '../../shared/pipes/search.pipe';
 import { ConfirmeDeletedComponent } from './components/confirme-deleted/confirme-deleted.component';
 
 @Component({
@@ -36,12 +39,19 @@ import { ConfirmeDeletedComponent } from './components/confirme-deleted/confirme
     RouterLink,
     AsyncPipe,
     TranslateModule,
+    SearchPipe,
+    FormsModule,
+    ButtonComponent,
   ],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.css',
 })
 export class PostsListComponent implements OnInit {
   @ViewChild(ConfirmeDeletedComponent) confirmDialog!: ConfirmeDeletedComponent;
+
+  showFilterPopup = false;
+  searchKey: any = '';
+  tempSearchKey: any = ''; // Temporary storage for search value
 
   _dataService = inject(DataService);
   _languageService = inject(LanguageService);
@@ -126,5 +136,17 @@ export class PostsListComponent implements OnInit {
 
   isFirstPage(): boolean {
     return this.first === 0;
+  }
+
+  toggleFilterPopup() {
+    this.showFilterPopup = !this.showFilterPopup;
+    if (!this.showFilterPopup) {
+      this.tempSearchKey = this.searchKey; // Restore previous search when closing
+    }
+  }
+
+  applyFilter() {
+    this.searchKey = this.tempSearchKey;
+    this.showFilterPopup = false;
   }
 }
