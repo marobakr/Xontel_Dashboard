@@ -87,7 +87,6 @@ export const routes: Routes = [
           import('./pages/not-found/not-found.component').then(
             (m) => m.NotFoundComponent
           ),
-        canActivate: [authGuard],
       },
     ],
   },
