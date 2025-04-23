@@ -9,7 +9,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 export function provideTranslation() {
   return {
-    defaultLanguage: 'ar',
+    defaultLanguage: 'en',
     loader: {
       provide: TranslateLoader,
       useFactory: createTranslateLoader,
